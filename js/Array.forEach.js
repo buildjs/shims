@@ -3,13 +3,13 @@
 // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/array/forEach
 if (!Array.prototype.forEach) {
     Array.prototype.forEach = function forEach(fun /*, thisp*/) {
-        var self = toObject(this),
+        var self = this, // toObject(this),
             thisp = arguments[1],
             i = -1,
             length = self.length >>> 0;
 
         // If no callback function or if callback is not a callable function
-        if (_toString(fun) != "[object Function]") {
+        if (sniff(fun) != 'function') {
             throw new TypeError(); // TODO message
         }
 
