@@ -1,4 +1,0 @@
-// req: sniff
-
-function shim() {
-}
